@@ -10,7 +10,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 
-public class MeterInspectionReport extends AppCompatActivity {
+public class MeterInspectionReport extends AppCompatActivity {  // inspection report
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -2,12 +2,14 @@ package com.example.metersinspector;
 
 import java.util.ArrayList;
 
-public class GasMeterResidential extends Device {
+public class GasMeterResidential extends Device {   // a residential meter object to store the state of Inspected meter
+
 
     int creditAmount;
     int digitalTotaliser;
-    ArrayList<String> mechanicalDamage = new ArrayList<>(10);
-    // Maybe Map is better, but we can add custom strings to list from the service engineer
+
+    // list to store mechanical damage that removes Warrancy
+    ArrayList<String> mechanicalDamage = new ArrayList<>(10);   // Maybe Map is better, but we can add custom strings to list from the service engineer
 
 
     // list of meter functions to check
@@ -18,8 +20,16 @@ public class GasMeterResidential extends Device {
     boolean digitalTotaliserFuncOk;
     boolean totalisersEqual; // Maybe if not equal we show the difference
     boolean dateTimeOK;
+    boolean valveOpened;
+
 
     //list of changeable parameters and their state
+    boolean emcActive;
+    int emcAmount;
+
+    String customerCardReadingResult;       //reads fine, no reaction, returns 8, returns error: F011 or another
+    String maintenanceCardReadingResult;    //reads fine, no reaction, returns 8, returns error: F011 or another
+    String textOnDisplay;                  //OFF, F044, ALARM 1-5, or normal
 
 
     public String getSerialNumber(){
