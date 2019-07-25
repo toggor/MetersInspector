@@ -18,7 +18,7 @@ public class GasMeterResidential extends Device {   // a residential meter objec
     boolean roundButtonFuncOk;
     boolean mechanicalTotaliserFuncOk;
     boolean digitalTotaliserFuncOk;
-    boolean totalisersEqual; // Maybe if not equal we show the difference
+    boolean bothTotalisersEqual; // Maybe if not equal we show the difference
     boolean dateTimeOK;
     boolean valveOpened;
 

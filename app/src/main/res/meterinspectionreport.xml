@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eventReport>
+	<MeterInspectionReport>
+		<creditAmount>10500.00</creditAmount>     		--! integer values have to be parsed not to use float>
+		<digitalTotaliser>34505.00</digitalTotaliser> 	--! integer values have to be parsed not to use float>
+		<totaliser>34505.00</totaliser>					--! integer values have to be parsed not to use float>
+		<serialNumber>12518465</serialNumber>
+		<deviceType>G6 RF1 iV PSC</deviceType>
+		<pipeConnection>1" 1/4</pipeConnection>
+
+		<mechanicalDamage>
+			<line0>overpressure</line0>
+			<line1>paint coating damaged</line1>
+		</mechanicalDamage>
+
+		<displayFuncOk>1</displayFuncOk>
+		<infoButtonFuncOk>1</infoButtonFuncOk>
+		<roundButtonFuncOk>1</roundButtonFuncOk>
+		<mechanicalTotaliserFuncOk>1</mechanicalTotaliserFuncOk>
+		<digitalTotaliserFuncOk>1</digitalTotaliserFuncOk>
+		<bothTotalisersEqual>1</bothTotalisersEqual>
+		<dateTimeOK>1</dateTimeOK>
+		<valveOpened>1</valveOpened>
+
+		<customerCardReadingResult>normal</customerCardReadingResult>
+		<maintenanceCardReadingResult>normal</maintenanceCardReadingResult>
+		<textOnDisplay>F044</textOnDisplay>
+
+	</MeterInspectionReport>
+</eventReport>
