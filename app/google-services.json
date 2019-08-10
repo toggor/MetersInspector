@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "513906554694-0gckqab88g2t22ukmrfst5a030st6hko.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.metersinspector",
+            "certificate_hash": "aaf990bc29e96912b4518e59348a3190c92dd92f"
+          }
+        },
+        {
           "client_id": "513906554694-7aphg9iu3du70lri27r3ltsq3vm6mu8r.apps.googleusercontent.com",
           "client_type": 3
         }
