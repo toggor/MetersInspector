@@ -5,15 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.example.metersinspector.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
@@ -24,13 +20,13 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
-import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText mPhoneNumber, mCode;
     private Button mSend;
+    private String mVerificationId;
 
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
 
@@ -50,26 +46,47 @@ public class MainActivity extends AppCompatActivity {
         mSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startPhoneNumberVerification();
+                if(mVerificationId != null){
+                    verifyNumberWithCode();
+                }
+                else{
+                    startPhoneNumberVerification();
+                }
+
             }
         });
 
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
-                signInWithPhoneNumberCredentials(phoneAuthCredential);
+                signInWithPhoneAuthCredentials(phoneAuthCredential);
             }
 
             @Override
             public void onVerificationFailed(FirebaseException e) {
                 //TODO throw exception
                 System.out.println("Something went wrong " + e.getStackTrace().toString());
+
+            }
+
+            @Override
+            public void onCodeSent(String verificationId, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                super.onCodeSent(verificationId, forceResendingToken);
+
+                mVerificationId = verificationId;
+                mSend.setText("Verify Code");
             }
         };
     }
 
 
-    private void signInWithPhoneNumberCredentials(PhoneAuthCredential phoneAuthCredential) {
+    private void verifyNumberWithCode(){
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, mCode.getText().toString());
+        signInWithPhoneAuthCredentials(credential);
+
+    }
+
+    private void signInWithPhoneAuthCredentials(PhoneAuthCredential phoneAuthCredential) {
         FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
