@@ -17,13 +17,13 @@
         <activity
             android:name=".MeterInspectionReport"
             android:label="@string/title_activity_meter_inspection_report"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.metersinspector.MainActivity" />
+                android:value="com.example.metersinspector.LoginActivity" />
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
