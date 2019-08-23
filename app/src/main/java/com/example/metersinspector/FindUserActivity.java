@@ -102,7 +102,7 @@ public class FindUserActivity extends AppCompatActivity {
             }
         }
 
-        return "+7";
+        return "US";
     }
     private void initializeRecyclerView() {
         mUserList = findViewById(R.id.userList);
@@ -110,7 +110,9 @@ public class FindUserActivity extends AppCompatActivity {
         mUserList.setHasFixedSize(false);
         mUserListLayoutManager = new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL, false);
         mUserList.setLayoutManager(mUserListLayoutManager);
-        mUserListAdapter = new UserListAdapter(userList);
+        //+7mUserListAdapter = new UserListAdapter(userList);
+        mUserListAdapter = new UserListAdapter(contactList);
+
         mUserList.setAdapter(mUserListAdapter);
     }
 }
